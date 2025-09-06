@@ -7,5 +7,5 @@ import { Component, signal } from '@angular/core';
   styleUrl: './app.css',
 })
 export class App {
-  title = 'Cadastro de Pessoas';
+  title = 'Cadastro de Pessoas / Marcus';
 }
