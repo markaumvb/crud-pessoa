@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Pessoa } from '../../shared/models/pessoa.model';
 import { Router } from '@angular/router';
@@ -13,6 +13,7 @@ import { PessoaService } from '../services/pessoa';
 export class InserirPessoa {
   @ViewChild('formPessoa') formPessoa!: NgForm;
   pessoa: Pessoa = new Pessoa();
+  data_atual = new Date();
   constructor(private pessoaService: PessoaService, private router: Router) {}
 
   inserir() {
