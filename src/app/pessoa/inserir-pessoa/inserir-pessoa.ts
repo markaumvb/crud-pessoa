@@ -13,7 +13,7 @@ import { PessoaService } from '../services/pessoa';
 export class InserirPessoa {
   @ViewChild('formPessoa') formPessoa!: NgForm;
   pessoa: Pessoa = new Pessoa();
-  data_atual = new Date();
+  data_atual = new Date(); //aqui, como fazer!?!
   constructor(private pessoaService: PessoaService, private router: Router) {}
 
   inserir() {
