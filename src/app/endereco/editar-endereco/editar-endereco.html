@@ -1,0 +1,120 @@
+<h1>Novo Endereço</h1>
+<div class="well">
+  <form #formEndereco="ngForm">
+    <div class="form-group">
+      <label for="rua">Rua</label>
+      <input
+        type="text"
+        class="form-control"
+        id="rua"
+        name="rua"
+        placeholder="Rua"
+        minlength="2"
+        required
+        [(ngModel)]="endereco.rua"
+        #rua="ngModel"
+      />
+      <div class="alert alert-danger" *ngIf="rua.errors && (rua.dirty || rua.touched)">
+        <div [hidden]="!rua.errors['required']">Digite a rua do endereço</div>
+        <div [hidden]="!rua.errors['minlength']">A rua deve ter no mínimo 2 caracteres</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="numero">Nº</label>
+      <input
+        type="number"
+        class="form-control"
+        id="numero"
+        name="numero"
+        [(ngModel)]="endereco.numero"
+        #numero="ngModel"
+        required
+      />
+      <div class="alert alert-danger" *ngIf="numero.errors && (numero.dirty || numero.touched)">
+        <div [hidden]="!numero.errors['required']">numero é obrigatório</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="complemento">Complementoº</label>
+      <input
+        type="text"
+        class="form-control"
+        id="complemento"
+        name="complemento"
+        [(ngModel)]="endereco.complemento"
+        #complemento="ngModel"
+      />
+    </div>
+    <div class="form-group">
+      <label for="bairro">Bairro</label>
+      <input
+        type="string"
+        class="form-control"
+        id="bairro"
+        name="bairro"
+        [(ngModel)]="endereco.bairro"
+        #bairro="ngModel"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="CEP">CEP</label>
+      <input
+        type="string"
+        class="form-control"
+        id="CEP"
+        name="CEP"
+        [(ngModel)]="endereco.cep"
+        #CEP="ngModel"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="cidade">Cidade</label>
+      <input
+        type="string"
+        class="form-control"
+        id="cidade"
+        name="cidade"
+        [(ngModel)]="endereco.cidade"
+        #cidade="ngModel"
+        minlength="3"
+        required
+      />
+      <div class="alert alert-danger" *ngIf="cidade.errors && (cidade.dirty || cidade.touched)">
+        <div [hidden]="!cidade.errors['required']">cidade é obrigatório</div>
+        <div [hidden]="!cidade.errors['minlength']">A cidade deve ter no mínimo 2 caracteres</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="estado">UF</label>
+      <input
+        type="string"
+        class="form-control"
+        id="estado"
+        name="estado"
+        [(ngModel)]="endereco.estado"
+        #estado="ngModel"
+        maxlength="2"
+        required
+      />
+      <div class="alert alert-danger" *ngIf="estado.errors && (estado.dirty || estado.touched)">
+        <div [hidden]="!estado.errors['required']">Estado é obrigatório</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <button
+        type="submit"
+        class="btn btn-primary"
+        (click)="atualizar()"
+        [disabled]="formEndereco.form.invalid"
+        [routerLink]="['/enderecos']"
+      >
+        <i class="fa fa-save aria-hidden=true"></i>Atualizar
+      </button>
+      <a class="btn btn-secondary" [routerLink]="['/enderecos']">
+        <i class="fa fa-arrow-left aria-hidden=true"></i>Voltar
+      </a>
+    </div>
+  </form>
+</div>
